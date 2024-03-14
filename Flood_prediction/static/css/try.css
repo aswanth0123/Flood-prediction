@@ -1,0 +1,769 @@
+/*--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+--*/
+
+/*-- Fonts --*/
+@font-face{
+    font-family: 'Oswald-Bold';
+    src:url(../fonts/Oswald-Bold.ttf) format('truetype');
+  }
+  @font-face{
+      font-family: 'Oswald-Regular';
+      src:url(../fonts/Oswald-Regular.ttf) format('truetype');
+  }
+  @font-face{
+    font-family: 'Gotham-Book';
+    src:url(../fonts/Gotham-Book.ttf) format('truetype');
+  }
+  /*-- Fonts --*/
+  
+  /*-- Index - Page - styling --*/
+  
+  body {
+    background: url("../images/bg.jpg");
+  }
+  
+  .clear {
+    clear: both;
+  }
+  
+  h1 {
+    text-align: center;
+    font-family: 'Oswald-Bold';
+    color: #FFF;
+    font-size: 40px;
+    margin: 40px auto;
+  }
+  
+  .content {
+    width: 50%;
+    margin: 0 auto;
+  }
+  
+  .place {
+    background: url("../images/sun.jpg");
+    min-height: 500px;
+    background-size: 100% 100%;
+    width: 49%;
+    float: left;
+  }
+  
+  div#txt {
+      padding: 40px 10px;
+      text-align: center;
+      font-family: Gotham-Book;
+      font-size: 50px;
+      font-weight: bold;
+      color: #FFFFFF;
+      background: rgba(0, 0, 0, 0.47);
+      margin: 45px 0 30px;
+  }
+  
+  .dmy {
+      padding: 20px 10px;
+      text-align: center;
+      font-size: 30px;
+      font-family: Gotham-Book;
+      font-weight: bold;
+      color: #FFF;
+      background-color: rgba(69, 64, 64, 0.37);
+  }
+  
+  .city p {
+      padding: 20px 10px;
+      text-align: center;
+      font-size: 30px;
+      font-family: Oswald-Regular;
+      color: #FFF;
+      background: rgba(0, 0, 0, 0.19) 20px;
+  }
+  
+  .temp {
+      width: 49%;
+      float: left;
+      background: rgba(69, 64, 64, 0.37);
+      min-height: 500px;
+  }
+  
+  .temp p {
+      text-align: center;
+      margin-top: 70px;
+      font-size: 75px;
+      font-family: Gotham-Book;
+      color: #FFFFFF;
+  }
+  
+  .day {
+      width: 100%;
+      margin-top: -30px;
+      text-align: center;
+  }
+  .day h3 {
+      margin-top: 100px;
+      font-family: Gotham-Book;
+      color: #FFFFFF;
+      font-size: 35px;
+  }
+  .day p {
+      padding: 10px;
+      text-align: center;
+      font-size: 22px;
+      margin-top: 10px;
+      font-family: Gotham-Book;
+      color: #FFFFFF;
+  }
+  
+  .sat {
+      float: left;
+      width: 33%;
+      background: url("../images/sunny.png") no-repeat 25px 0px;
+  }
+  .sund {
+      float: left;
+      width: 33%;
+      background: url("../images/cloudy.png") no-repeat 25px 0px;
+  }
+  .mon {
+      float: left;
+      width: 33%;
+      background: url("../images/rainy.png") no-repeat 25px 0px;
+  }
+  
+  /*-- Navbar - Styling --*/
+  
+  
+  div#dd1 span {
+      z-index: 9999999;
+      position: absolute;
+      left: 20px;
+      top: 15px;
+  }
+  img {
+      width: 150%;
+  }
+  .dr1{
+      position: relative;
+    outline: none;
+    float:left;
+    cursor: pointer;
+    min-height:60px;
+  }
+  .wrapper-dropdown-2,.wrapper-dropdown-3 {
+      position: relative;
+    outline: none;
+    float:left;
+     width: 15%;
+     min-height:60px;
+       cursor: pointer;
+  }
+  .wrapper-dropdown-1 .dropdown ,.wrapper-dropdown-3 .dropdown,.wrapper-dropdown-4 .dropdown{
+      width: 150px;
+      top: 35px;
+      position: absolute;
+      left: 20px;
+      -webkit-transition: all 0.5s ease-out;
+      -moz-transition: all 0.5s ease-out;
+      -ms-transition: all 0.5s ease-out;
+      -o-transition: all 0.5s ease-out;
+      transition: all 0.5s ease-out;
+      list-style: none;
+      z-index: 1;
+      background-color: #FFF;
+      -webkit-box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.47);
+      -moz-box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.47);
+      -o-box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.47);
+      box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.47);
+      max-height: 0;
+      overflow: hidden;
+      z-index: 99999;
+      padding-left: 0px;
+      font-family: Gotham-Book;
+  }
+  .wrapper-dropdown-2 .dropdown ,.wrapper-dropdown-4 .dropdown{
+    /* Size & position */
+      position: absolute;
+      width:171px;
+      right: 0px;
+      /* Styles */
+      -webkit-transition: all 0.5s ease-out;
+      -moz-transition: all 0.5s ease-out;
+      -ms-transition: all 0.5s ease-out;
+      -o-transition: all 0.5s ease-out;
+      transition: all 0.5s ease-out;
+      list-style: none;
+      z-index:1;
+      background-color: #FFF;
+    -webkit-box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.47);
+    -moz-box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.47);
+    -o-box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.47);
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.47);
+      top: 62px;
+      /* Hiding */
+      max-height: 0;
+      overflow: hidden;
+  }
+  .wrapper-dropdown .dropdown li {
+      position: relative; /* Enable absolute positioning for checkboxes */
+  }
+  .wrapper-dropdown-1 .dropdown li,.wrapper-dropdown-2 .dropdown li,.wrapper-dropdown-3 .dropdown li,.wrapper-dropdown-4 .dropdown li{
+    border-bottom: 1px solid #F0F0F0;
+    float: none;
+    margin: 0;
+      width: 100%;
+  }
+  .wrapper-dropdown-1 .dropdown li,.wrapper-dropdown-3 .dropdown li,.wrapper-dropdown-4 .dropdown li{
+    padding:8px;
+  }
+  .wrapper-dropdown-1 .dropdown li:hover,.wrapper-dropdown-3 .dropdown li:hover ,.wrapper-dropdown-4 .dropdown li:hover {
+    background:#FDFDFD;
+  }
+  .odd{
+  }
+  .wrapper-dropdown-1 .dropdown li:last-child,.wrapper-dropdown-3 .dropdown li:last-child,.wrapper-dropdown-2 .dropdown li:last-child,.wrapper-dropdown-4 .dropdown li:last-child{
+    border-bottom:none;
+  }
+  .wrapper-dropdown-1 .dropdown li a,.wrapper-dropdown-2 .dropdown li a,.wrapper-dropdown-3 .dropdown li a ,.wrapper-dropdown-4 .dropdown li a {
+      display: block;
+    text-decoration: none;
+    color:#777;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    border-radius: 0;
+      border: none;
+       text-align: left;
+      padding-left: 1em;
+  }
+  /* Active state */
+  .wrapper-dropdown-1.active:after,.wrapper-dropdown-2.active:after,.wrapper-dropdown-3.active:after,.wrapper-dropdown-4.active:after{
+      border-width: 0 6px 6px 6px;
+  }
+  .wrapper-dropdown-1.active .dropdown,.wrapper-dropdown-2.active .dropdown,.wrapper-dropdown-3.active .dropdown ,.wrapper-dropdown-4.active .dropdown {
+     max-height: 400px;
+  }
+  .wrapper-dropdown-2 .dropdown li a ,.wrapper-dropdown-4 .dropdown li a {
+    display: block;
+    text-decoration: none;
+    color: #000;
+    padding: 10px;
+    font-weight: 600;
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -ms-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+    text-transform: capitalize;
+    font-size: 1em;
+    font-weight: 100;
+  }
+  
+  
+  /*-- Navbar - Styling --*/
+  
+  .footer {
+      text-align: center;
+      margin-top: 100px;
+  }
+  .footer p {
+      font-family: Oswald-Regular;
+      color: #000;
+  }
+  .footer a {
+      font-family: Oswald-Regular;
+      color: #000;
+      text-decoration: none;
+  }
+  .footer a:hover {
+      color: #FFF;
+      text-decoration: underline;
+  }
+  
+  /*-- Index - Page - Styling --*/
+  
+  /*-- Responsive - Code --*/
+  
+  @media screen and (max-width: 1920px) {
+      .city p {
+          background: rgba(0, 0, 0, 0.19) 75px;
+      }
+      img {
+          width: 100%;
+      }
+      .wrapper-dropdown-1 .dropdown, .wrapper-dropdown-3 .dropdown, .wrapper-dropdown-4 .dropdown {
+          width: 150px;
+          top: 40px;
+      }
+      .day p {
+          font-size: 25px;
+          /* line-height: 40px; */
+      }
+      .sat {
+          background: url("../images/sunny.png") no-repeat 47px 0px;
+      }
+      .sund {
+          background: url("../images/cloudy.png") no-repeat 47px 0px;
+      }
+      .mon {
+          background: url("../images/rainy.png") no-repeat 45px 0px;
+      }
+  }
+  
+  @media screen and (max-width: 1680px) {
+      .city p {
+          background: rgba(0, 0, 0, 0.19) 35px;
+      }
+      .sat {
+          background: url("../images/sunny.png") no-repeat 37px 0px;
+      }
+      .sund {
+          background: url("../images/cloudy.png") no-repeat 37px 0px;
+      }
+      .mon {
+          background: url("../images/rainy.png") no-repeat 35px 0px;
+      }
+  }
+  
+  @media screen and (max-width: 1600px) {
+      .sat {
+          background: url("../images/sunny.png") no-repeat 34px 0px;
+      }
+      .sund {
+          background: url("../images/cloudy.png") no-repeat 34px 0px;
+      }
+      .mon {
+          background: url("../images/rainy.png") no-repeat 32px 0px;
+      }
+  }
+  
+  @media screen and (max-width: 1440px) {
+      .content {
+          width: 60%;
+      }
+      .city p {
+          background: rgba(0, 0, 0, 0.19) 55px;
+      }
+      .sat {
+          background: url("../images/sunny.png") no-repeat 40px 0px;
+      }
+      .sund {
+          background: url("../images/cloudy.png") no-repeat 40px 0px;
+      }
+      .mon {
+          background: url("../images/rainy.png") no-repeat 38px 0px;
+      }
+  }
+  
+  @media screen and (max-width: 1366px) {
+      .city p {
+          background: rgba(0, 0, 0, 0.19) 40px;
+      }
+      .sat {
+          background: url("../images/sunny.png") no-repeat 35px 0px;
+      }
+      .sund {
+          background: url("../images/cloudy.png") no-repeat 35px 0px;
+      }
+      .mon {
+          background: url("../images/rainy.png") no-repeat 33px 0px;
+      }
+  }
+  
+  @media screen and (max-width: 1280px) {
+      .content {
+          width: 70%;
+      }
+      .city p {
+          background: rgba(0, 0, 0, 0.19) 60px;
+      }
+      .sat {
+          background: url("../images/sunny.png") no-repeat 41px 0px;
+      }
+      .sund {
+          background: url("../images/cloudy.png") no-repeat 41px 0px;
+      }
+      .mon {
+          background: url("../images/rainy.png") no-repeat 39px 0px;
+      }
+  }
+  
+  @media screen and (max-width: 1200px) {
+      .content {
+          width: 65%;
+      }
+      .city p {
+          background: rgba(0, 0, 0, 0.19) 35px;
+      }
+      .sat {
+          background: url("../images/sunny.png") no-repeat 33px 0px;
+      }
+      .sund {
+          background: url("../images/cloudy.png") no-repeat 33px 0px;
+      }
+      .mon {
+          background: url("../images/rainy.png") no-repeat 31px 0px;
+      }
+  }
+  
+  @media screen and (max-width: 1080px) {
+      .content {
+          width: 70%;
+      }
+      .city p {
+          background: rgba(0, 0, 0, 0.19) 20px;
+      }
+      .sat {
+          background: url("../images/sunny.png") no-repeat 30px 0px;
+      }
+      .sund {
+          background: url("../images/cloudy.png") no-repeat 30px 0px;
+      }
+      .mon {
+          background: url("../images/rainy.png") no-repeat 28px 0px;
+      }
+  }
+  
+  @media screen and (max-width: 1050px) {
+      .content {
+          width: 70%;
+      }
+      .city p {
+          background: rgba(0, 0, 0, 0.19) 20px;
+      }
+      .sat {
+          background: url("../images/sunny.png") no-repeat 26px 0px;
+      }
+      .sund {
+          background: url("../images/cloudy.png") no-repeat 26px 0px;
+      }
+      .mon {
+          background: url("../images/rainy.png") no-repeat 24px 0px;
+      }
+  }
+  
+  @media screen and (max-width: 1024px) {
+      .content {
+          width: 80%;
+      }
+      .city p {
+          background: rgba(0, 0, 0, 0.19) 40px;
+      }
+      .sat {
+          background: url("../images/sunny.png") no-repeat 33px 0px;
+      }
+      .sund {
+          background: url("../images/cloudy.png") no-repeat 33px 0px;
+      }
+      .mon {
+          background: url("../images/rainy.png") no-repeat 31px 0px;
+      }
+  }
+  
+  @media screen and (max-width: 966px) {
+      .city p {
+          background: rgba(0, 0, 0, 0.19) 25px;
+      }
+      .sat {
+          background: url("../images/sunny.png") no-repeat 31px 0px;
+      }
+      .sund {
+          background: url("../images/cloudy.png") no-repeat 31px 0px;
+      }
+      .mon {
+          background: url("../images/rainy.png") no-repeat 29px 0px;
+      }
+  }
+  
+  @media screen and (max-width: 900px) {
+      .content {
+          width: 85%;
+      }
+      .city p {
+          background: rgba(0, 0, 0, 0.19) 25px;
+      }
+      .sat {
+          background: url("../images/sunny.png") no-repeat 33px 0px;
+      }
+      .sund {
+          background: url("../images/cloudy.png") no-repeat 33px 0px;
+      }
+      .mon {
+          background: url("../images/rainy.png") no-repeat 31px 0px;
+      }
+  }
+  
+  @media screen and (max-width: 853px) {
+      .content {
+          width: 94%;
+      }
+  }
+  
+  @media screen and (max-width: 800px) {
+      .content {
+          width: 95%;
+      }
+  }
+  
+  @media screen and (max-width: 768px) {
+      .content {
+          width: 95%;
+      }
+      .city p {
+          background: rgba(0, 0, 0, 0.19) 25px;
+      }
+      .sat {
+          background: url("../images/sunny.png") no-repeat 28px 0px;
+      }
+      .sund {
+          background: url("../images/cloudy.png") no-repeat 28px 0px;
+      }
+      .mon {
+          background: url("../images/rainy.png") no-repeat 26px 0px;
+      }
+  }
+  
+  @media screen and (max-width: 736px) {
+      .content {
+          width: 100%;
+      }
+  }
+  
+  @media screen and (max-width: 667px) {
+      div#txt {
+          padding: 40px 10px;
+          font-size: 45px;
+      }
+      .dmy {
+          font-size: 25px;
+      }
+      .city p {
+          background: rgba(0, 0, 0, 0.19) 10px;
+      }
+      .sat {
+          background: url("../images/sunny.png") no-repeat 22px 0px;
+      }
+      .sund {
+          background: url("../images/cloudy.png") no-repeat 22px 0px;
+      }
+      .mon {
+          background: url("../images/rainy.png") no-repeat 20px 0px;
+      }
+  }
+  
+  @media screen and (max-width: 640px) {
+      .city p {
+          background: rgba(0, 0, 0, 0.19) 3px;
+      }
+      .sat {
+          background: url("../images/sunny.png") no-repeat 20px 0px;
+      }
+      .sund {
+          background: url("../images/cloudy.png") no-repeat 20px 0px;
+      }
+      .mon {
+          background: url("../images/rainy.png") no-repeat 18px 0px;
+      }
+  }
+  
+  @media screen and (max-width: 603px) {
+      .content {
+          width: 100%;
+      }
+      div#txt {
+          padding: 30px 10px;
+          font-size: 40px;
+          margin: 80px 0 30px;
+      }
+      .dmy {
+          font-size: 25px;
+      }
+      .city p {
+          font-size: 15px;
+          background: rgba(0, 0, 0, 0.19) 10px;
+      }
+      .temp p {
+          margin-top: 94px;
+          font-size: 70px;
+      }
+      .day h3 {
+          font-size: 33px;
+      }
+      .day p {
+          font-size: 24px;
+          /* line-height: 37px; */
+          margin-top: 0px;
+      }
+      .city p {
+          background: rgba(0, 0, 0, 0.19) 15px;
+      }
+      .sat {
+          background: url("../images/sunny.png") no-repeat 17px 0px;
+      }
+      .sund {
+          background: url("../images/cloudy.png") no-repeat 17px 0px;
+      }
+      .mon {
+          background: url("../images/rainy.png") no-repeat 15px 0px;
+      }
+  }
+  
+  @media screen and (max-width: 600px) {
+      .content {
+          width: 100%;
+      }
+      div#txt {
+          padding: 30px 10px;
+          font-size: 40px;
+          margin: 80px 0 30px;
+      }
+      .dmy {
+          font-size: 25px;
+      }
+      .city p {
+          font-size: 15px;
+          background: rgba(0, 0, 0, 0.19) 10px;
+      }
+      .temp p {
+          margin-top: 94px;
+          font-size: 70px;
+      }
+      .day h3 {
+          font-size: 33px;
+      }
+      .day p {
+          font-size: 24px;
+          /* line-height: 37px; */
+          margin-top: 0px;
+      }
+      .sat {
+          background: url("../images/sunny.png") no-repeat 17px 0px;
+      }
+      .sund {
+          background: url("../images/cloudy.png") no-repeat 17px 0px;
+      }
+      .mon {
+          background: url("../images/rainy.png") no-repeat 15px 0px;
+      }
+  }
+  
+  @media screen and (max-width: 568px) {
+      .city p {
+          background: rgba(0, 0, 0, 0.19) 6px;
+      }
+      .sat {
+          background: url("../images/sunny.png") no-repeat 14px 0px;
+      }
+      .sund {
+          background: url("../images/cloudy.png") no-repeat 14px 0px;
+      }
+      .mon {
+          background: url("../images/rainy.png") no-repeat 12px 0px;
+      }
+  }
+  
+  @media screen and (max-width: 533px) {
+      .place {
+          width: 70%;
+          margin-left: 75px;
+      }
+      .city p {
+          font-size: 20px;
+          background: rgba(0, 0, 0, 0.19) 25px;
+      }
+      .temp {
+          width: 70%;
+          margin-left: 75px;
+          margin-top: 50px;
+      }
+      .sat {
+          background: url("../images/sunny.png") no-repeat 27px 0px;
+      }
+      .sund {
+          background: url("../images/cloudy.png") no-repeat 27px 0px;
+      }
+      .mon {
+          background: url("../images/rainy.png") no-repeat 25px 0px;
+      }
+  }
+  
+  @media screen and (max-width: 480px) {
+      .place {
+          width: 75%;
+          margin-left: 55px;
+      }
+      .temp {
+          width: 75%;
+          margin-left: 55px;
+          margin-top: 50px;
+      }
+  }
+  
+  @media screen and (max-width: 414px) {
+      .place {
+          width: 90%;
+          margin-left: 20px;
+      }
+      .dmy {
+          font-size: 23px;
+      }
+      .city p {
+          font-size: 15px;
+          background: rgba(0, 0, 0, 0.19) 15px;
+      }
+      .temp {
+          width: 90%;
+          margin-left: 20px;
+          margin-top: 50px;
+      }
+      .sat {
+          background: url("../images/sunny.png") no-repeat 18px 0px;
+      }
+      .sund {
+          background: url("../images/cloudy.png") no-repeat 18px 0px;
+      }
+      .mon {
+          background: url("../images/rainy.png") no-repeat 16px 0px;
+      }
+  }
+  
+  @media screen and (max-width: 384px) {
+      h1 {
+        font-size: 35px;
+      }
+  }
+  
+  @media screen and (max-width: 375px) {
+    h1 {
+      font-size: 35px;
+    }
+      .place {
+          width: 90%;
+          margin-left: 15px;
+      }
+      .temp {
+          width: 90%;
+          margin-left: 15px;
+          margin-top: 50px;
+      }
+  }
+  
+  @media screen and (max-width: 320px) {
+    h1 {
+      font-size: 28px;
+    }
+      .place {
+          width: 100%;
+          margin-left: 0px;
+      }
+      .temp {
+          width: 100%;
+          margin-left: 0px;
+          margin-top: 50px;
+      }
+  }
+  
+  /*-- Responsive - Code --*/
