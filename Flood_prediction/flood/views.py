@@ -4,13 +4,20 @@ import math
 from django.http import HttpResponse
 from django.contrib import messages
 from .graph import *
+
+import datetime
 def index(request):
     try:
+        
+
         city_name='kochi'
         api_key='360e4bc3865e745ec844bd7ec054ca11'
         url=f'https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={api_key}'
         data=requests.get(url)
         weather_data = data.json()
+        dt_object = datetime.datetime.fromtimestamp(weather_data['sys']['sunrise'])
+        dt_object1 = datetime.datetime.fromtimestamp(weather_data['sys']['sunset'])
+
         data={
             'city':city_name,
         # Extract relevant information
@@ -20,8 +27,10 @@ def index(request):
         'humidity' : weather_data['main']['humidity'],
         'temp_min_celsius' : math.floor(weather_data['main']['temp_min'] - 273.15),  # Convert to Celsius
         'temp_max_celsius' :math.floor(weather_data['main']['temp_max'] - 273.15),  # Convert to Celsius
-
+        'sunrise': dt_object.strftime('%H:%M:%S'),'sunset': dt_object1.strftime('%H:%M:%S')
         }
+
+
         return render(request,'index.html',{'data':data})
 
     except:
@@ -50,13 +59,9 @@ def prediction(request):
         a=predict1(year,l)
         if a[0]==1:
             messages.success(request,'There is a chance for Flood')
-
         else:
             messages.success(request,'There is no chance for Flood')
-
-
     return render(request,'predict.html')
-
 
 def graph_view(request):
     year_list,rain_list=details_list()
