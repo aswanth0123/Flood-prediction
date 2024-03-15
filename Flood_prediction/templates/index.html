@@ -45,12 +45,21 @@ function checkTime(i) {
 </head>
 <body onload="startTime()">
 
-<h1>Flod Prediction</h1>
+<h1 class="mt-3">Flod Prediction</h1>
 
-<div class="content">
-
+<div class="content mt-5">
+  {% if messages %}
+  <div class="container">
+  <div class="alert alert-success alert-dismissible messages">
+      {% for message in messages %}
+      <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      {{message}}
+    </div>
+       {% endfor %}
+  </div>
+  {% endif %}
 	<div class="place">
-
+    
 		<div id="txt"></div>
 
 		<div class="dmy">
@@ -167,13 +176,15 @@ function checkTime(i) {
   
         <!-- Modal Header -->
         <div class="modal-header">
-          <h4 class="modal-title">Modal Heading</h4>
+          <h4 class="modal-title">Enter a city</h4>
           <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
   
         <!-- Modal body -->
         <div class="modal-body">
-            <input type="text">
+          <form action="../city_change" method="post">
+            <input type="text" class="form-control" required name="city" >
+          </form>
         </div>
   
         <!-- Modal footer -->

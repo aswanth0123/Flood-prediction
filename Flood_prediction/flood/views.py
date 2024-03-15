@@ -7,12 +7,21 @@ from .graph import *
 
 import datetime
 def index(request):
-    try:
-        
+    try: 
+        if request.method=='POST':
+            city=request.POST['city']
+            try:
+                api_key='360e4bc3865e745ec844bd7ec054ca11'
+                url=f'https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={api_key}'
+            except:
+                city_name='kochi'
+                api_key='360e4bc3865e745ec844bd7ec054ca11'
+                url=f'https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={api_key}'
 
-        city_name='kochi'
-        api_key='360e4bc3865e745ec844bd7ec054ca11'
-        url=f'https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={api_key}'
+        else:
+            city_name='kochi'
+            api_key='360e4bc3865e745ec844bd7ec054ca11'
+            url=f'https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={api_key}'
         data=requests.get(url)
         weather_data = data.json()
         dt_object = datetime.datetime.fromtimestamp(weather_data['sys']['sunrise'])
@@ -34,6 +43,8 @@ def index(request):
         return render(request,'index.html',{'data':data})
 
     except:
+        messages.success(request,'please provide internet connection')
+
         return render(request,'index.html')
     # Display the weather details
 

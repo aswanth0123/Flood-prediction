@@ -11,7 +11,7 @@
 html, body {
     height: 100%;
     background-color: #152733;
-    overflow: scroll;
+    overflow: hidden;
 }
 
 
@@ -146,4 +146,13 @@ html, body {
 
 .valid-feedback{
    color: #2acc80;
+}
+@media (max-width: 500px){
+    body{
+ max-width: 450px;
+    }
+    .form-body{
+        max-width: 100vh;
+    }
+    
 }
