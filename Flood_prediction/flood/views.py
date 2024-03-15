@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 import requests
 import math
 from django.http import HttpResponse
@@ -7,45 +7,58 @@ from .graph import *
 
 import datetime
 def index(request):
-    try: 
         if request.method=='POST':
-            city=request.POST['city']
+            city_name=request.POST['city']
+            api_key='360e4bc3865e745ec844bd7ec054ca11'
+            url=f'https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={api_key}'
+            data=requests.get(url)
+            weather_data = data.json()
             try:
-                api_key='360e4bc3865e745ec844bd7ec054ca11'
-                url=f'https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={api_key}'
+                dt_object = datetime.datetime.fromtimestamp(weather_data['sys']['sunrise'])
+                dt_object1 = datetime.datetime.fromtimestamp(weather_data['sys']['sunset'])
             except:
-                city_name='kochi'
-                api_key='360e4bc3865e745ec844bd7ec054ca11'
-                url=f'https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={api_key}'
+                messages.success(request,'city not available')
+                request.method='GET'
+                return redirect(index)
 
+            
+                # messages.success(request,'city not available')
+                # city_name='kochi'
+                # api_key='360e4bc3865e745ec844bd7ec054ca11'
+                # url=f'https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={api_key}'
+                # return redirect(index)
         else:
             city_name='kochi'
             api_key='360e4bc3865e745ec844bd7ec054ca11'
             url=f'https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={api_key}'
-        data=requests.get(url)
-        weather_data = data.json()
-        dt_object = datetime.datetime.fromtimestamp(weather_data['sys']['sunrise'])
-        dt_object1 = datetime.datetime.fromtimestamp(weather_data['sys']['sunset'])
+        try:
+            data=requests.get(url)
+            weather_data = data.json()
+            dt_object = datetime.datetime.fromtimestamp(weather_data['sys']['sunrise'])
+            dt_object1 = datetime.datetime.fromtimestamp(weather_data['sys']['sunset'])
 
-        data={
-            'city':city_name,
-        # Extract relevant information
-        'weather_description' : weather_data['weather'][0]['description'],
-        'temperature_kelvin' : weather_data['main']['temp'],
-        'temperature_celsius' : math.floor(weather_data['main']['temp'] - 273.15),  # Convert to Celsius
-        'humidity' : weather_data['main']['humidity'],
-        'temp_min_celsius' : math.floor(weather_data['main']['temp_min'] - 273.15),  # Convert to Celsius
-        'temp_max_celsius' :math.floor(weather_data['main']['temp_max'] - 273.15),  # Convert to Celsius
-        'sunrise': dt_object.strftime('%H:%M:%S'),'sunset': dt_object1.strftime('%H:%M:%S')
-        }
+            data={
+                'city':city_name,
+            # Extract relevant information
+            'weather_description' : weather_data['weather'][0]['description'],
+            'temperature_kelvin' : weather_data['main']['temp'],
+            'temperature_celsius' : math.floor(weather_data['main']['temp'] - 273.15),  # Convert to Celsius
+            'humidity' : weather_data['main']['humidity'],
+            'temp_min_celsius' : math.floor(weather_data['main']['temp_min'] - 273.15),  # Convert to Celsius
+            'temp_max_celsius' :math.floor(weather_data['main']['temp_max'] - 273.15),  # Convert to Celsius
+            'sunrise': dt_object.strftime('%H:%M:%S'),'sunset': dt_object1.strftime('%H:%M:%S')
+            }
+            return render(request,'index.html',{'data':data})
+        except :
+                # messages.success(request,'please provide internet connection')
+                print('error')
+                return render(request,'index.html')
 
 
-        return render(request,'index.html',{'data':data})
+    # except:
+    #     messages.success(request,'please provide internet connection')
 
-    except:
-        messages.success(request,'please provide internet connection')
-
-        return render(request,'index.html')
+    #     return render(request,'index.html')
     # Display the weather details
 
 from .prediction import *

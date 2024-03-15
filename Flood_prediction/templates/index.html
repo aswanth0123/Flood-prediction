@@ -17,7 +17,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- //For-Mobile-Apps -->
 <!-- Style -->
-<link rel="stylesheet" href="{% static 'css/try.css' %}" type="text/css" media="all" />
+<link rel="stylesheet" href="{% static 'css/sam.css' %}" type="text/css" media="all" />
 <!-- Style -->
 <!-- JavaScript -->
 <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
@@ -58,7 +58,7 @@ function checkTime(i) {
        {% endfor %}
   </div>
   {% endif %}
-	<div class="place">
+	<div class="place pb-3">
     
 		<div id="txt"></div>
 
@@ -79,7 +79,7 @@ function checkTime(i) {
             </script>
         </div>
 
-        <div class="city">
+        <div class="city pb-5">
            <p> Sun Rise :{{data.sunrise}} <br> Sun Set: {{data.sunset}}</p>
         <!-- <p>Flood Prediction <a href="../prediction" class="text-white">click here</a> RainFall Graph <a href="../graph_view" class="text-white">click here</a> </p> -->
         </div>
@@ -182,8 +182,9 @@ function checkTime(i) {
   
         <!-- Modal body -->
         <div class="modal-body">
-          <form action="../city_change" method="post">
-            <input type="text" class="form-control" required name="city" >
+          <form action="../" method="post">
+            {% csrf_token %}
+            <input type="text" class="form-control" required name="city" ><input type="submit" class="btn btn-info mt-3">
           </form>
         </div>
   

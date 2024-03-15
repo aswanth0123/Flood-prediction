@@ -85,18 +85,16 @@ License URL: http://creativecommons.org/licenses/by/3.0/
       width: 49%;
       float: left;
       background: rgba(69, 64, 64, 0.37);
-      min-height: 500px;
+      min-height: 520px;
   }
   
   .temp p {
       text-align: center;
       margin-top: 70px;
       font-size: 50px;
-      font-family: Gotham-Book;
+      /* font-family: Gotham-Book; */
       color: #FFFFFF;
-      
-     overflow-wrap: anywhere;
-      
+     overflow-wrap: anywhere; 
   }
   
   .day {
