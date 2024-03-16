@@ -16,17 +16,11 @@ def index(request):
             try:
                 dt_object = datetime.datetime.fromtimestamp(weather_data['sys']['sunrise'])
                 dt_object1 = datetime.datetime.fromtimestamp(weather_data['sys']['sunset'])
+                request.method='GET'
             except:
                 messages.success(request,'city not available')
                 request.method='GET'
                 return redirect(index)
-
-            
-                # messages.success(request,'city not available')
-                # city_name='kochi'
-                # api_key='360e4bc3865e745ec844bd7ec054ca11'
-                # url=f'https://api.openweathermap.org/data/2.5/weather?q={city_name}&appid={api_key}'
-                # return redirect(index)
         else:
             city_name='kochi'
             api_key='360e4bc3865e745ec844bd7ec054ca11'
@@ -50,16 +44,8 @@ def index(request):
             }
             return render(request,'index.html',{'data':data})
         except :
-                # messages.success(request,'please provide internet connection')
-                print('error')
+                messages.success(request,'please provide internet connection')
                 return render(request,'index.html')
-
-
-    # except:
-    #     messages.success(request,'please provide internet connection')
-
-    #     return render(request,'index.html')
-    # Display the weather details
 
 from .prediction import *
 
@@ -89,6 +75,5 @@ def prediction(request):
 
 def graph_view(request):
     year_list,rain_list=details_list()
-   
     return render(request,'graph.html',{'year_list':year_list,'rain_list':rain_list})
    

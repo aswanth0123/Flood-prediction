@@ -45,10 +45,11 @@ License URL: http://creativecommons.org/licenses/by/3.0/
   
   .place {
     background: url("../images/sun.jpg");
-    min-height: 500px;
+    height: 520px;
     background-size: 100% 100%;
     width: 49%;
     float: left;
+    overflow-wrap: anywhere; 
   }
   
   div#txt {
@@ -85,7 +86,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
       width: 49%;
       float: left;
       background: rgba(69, 64, 64, 0.37);
-      min-height: 520px;
+      height: 520px;
   }
   
   .temp p {

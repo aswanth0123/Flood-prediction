@@ -17,7 +17,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
 <!-- //For-Mobile-Apps -->
 <!-- Style -->
-<link rel="stylesheet" href="{% static 'css/sam.css' %}" type="text/css" media="all" />
+<link rel="stylesheet" href="{% static 'css/sample.css' %}" type="text/css" media="all" />
 <!-- Style -->
 <!-- JavaScript -->
 <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
@@ -45,7 +45,7 @@ function checkTime(i) {
 </head>
 <body onload="startTime()">
 
-<h1 class="mt-3">Flod Prediction</h1>
+<h1 class="mt-3">Live Weather</h1>
 
 <div class="content mt-5">
   {% if messages %}
@@ -58,7 +58,7 @@ function checkTime(i) {
        {% endfor %}
   </div>
   {% endif %}
-	<div class="place pb-3">
+	<div class="place">
     
 		<div id="txt"></div>
 
@@ -98,7 +98,9 @@ function checkTime(i) {
 										
 				<li><a href="../prediction">Flood Prediction</a></li>
 				<li><a href="../graph_view">RainFall Graph</a></li>
+        {% if data %}
 				<li><a href="#"  data-bs-toggle="modal" data-bs-target="#myModal">change city</a></li>
+      {% endif %}
 
                 <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
                     Open modal
