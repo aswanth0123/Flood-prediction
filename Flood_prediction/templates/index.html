@@ -101,6 +101,8 @@ function checkTime(i) {
         {% if data %}
 				<li><a href="#"  data-bs-toggle="modal" data-bs-target="#myModal">change city</a></li>
       {% endif %}
+      <li><a href="" data-bs-toggle="modal" data-bs-target="#myModal1">predicted Rainfall Of this month</a></li>
+      <li><a href="" data-bs-toggle="modal" data-bs-target="#myModal2">Rainfall prediction by month</a></li>
 
                 <!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
                     Open modal
@@ -148,20 +150,7 @@ function checkTime(i) {
                 <p>Humidity:{{data.humidity}}%</p>
                 <p>{{data.temp_min_celsius}}°C↓ {{data.temp_max_celsius}}°C↑ </p>
             </div>
-            <!-- <div class="sat">
-                <h3>Sat</h3>
-                <p>19°C↓  22°C↑</p>
-            </div>
-
-            <div class="sund">
-                <h3>Sun</h3>
-                <p>17°C↓ 20°C↑</p>
-            </div>
-
-            <div class="mon">
-                <h3>Mon</h3>
-                <p>15°C↓ 18°C↑</p>
-            </div> -->
+   
 
             <div class="clear"></div>
 
@@ -198,7 +187,62 @@ function checkTime(i) {
       </div>
     </div>
   </div>
+
+  <div class="modal" id="myModal1">
+    <div class="modal-dialog">
+      <div class="modal-content">
   
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Rainfall Of this month</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+          <p>Rainfall Of this month:{{data.monthly}}mm</p>
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
+
+  <div class="modal" id="myModal2">
+    <div class="modal-dialog">
+      <div class="modal-content">
+  
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Rainfall prediction by month</h4>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+  
+        <!-- Modal body -->
+        <div class="modal-body">
+          <form action="../monthly_prediction" method="post">
+            {% csrf_token %}
+            <select name="month" id="" class="form-control" required>
+              {% for i in data.months %}
+              <option value="{{i}}">{{i}}</option>
+              {% endfor %}
+            </select>
+            <input type="submit" class="btn btn-info mt-3">
+          </form>
+        </div>
+  
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        </div>
+  
+      </div>
+    </div>
+  </div>
 <!-- <div class="footer">
      <p>Copyright &copy; 2015 Sleek Weather Widget. All Rights Reserved | Design by <a href="http://w3layouts.com">W3layouts</a></p>
 </div> -->

@@ -4,8 +4,37 @@ import math
 from django.http import HttpResponse
 from django.contrib import messages
 from .graph import *
-
 import datetime
+import statistics
+
+
+def monthly_rain(mon=None):
+    data=pd.read_csv("flood/kerala.csv")
+    month_list=data[mon]
+    month_list.tolist()
+    month_list=list(month_list)
+    average = statistics.mean(month_list)
+    return average
+def month_change():
+    months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December"
+    ]
+
+    # Convert to uppercase using list comprehension
+    months = [month.upper() for month in months]
+    return months
+
 def index(request):
         if request.method=='POST':
             city_name=request.POST['city']
@@ -29,7 +58,10 @@ def index(request):
             data=requests.get(url)
             weather_data = data.json()
             dt_object = datetime.datetime.fromtimestamp(weather_data['sys']['sunrise'])
-            dt_object1 = datetime.datetime.fromtimestamp(weather_data['sys']['sunset'])
+            dt_object1 = datetime.datetime.fromtimestamp(weather_data['sys']['sunset'])            
+            x = datetime.datetime.now()
+            x1=x.strftime("%b")
+            monthly=monthly_rain(x1.upper())
 
             data={
                 'city':city_name,
@@ -40,7 +72,9 @@ def index(request):
             'humidity' : weather_data['main']['humidity'],
             'temp_min_celsius' : math.floor(weather_data['main']['temp_min'] - 273.15),  # Convert to Celsius
             'temp_max_celsius' :math.floor(weather_data['main']['temp_max'] - 273.15),  # Convert to Celsius
-            'sunrise': dt_object.strftime('%H:%M:%S'),'sunset': dt_object1.strftime('%H:%M:%S')
+            'sunrise': dt_object.strftime('%H:%M:%S'),'sunset': dt_object1.strftime('%H:%M:%S'),
+            'monthly':round(monthly,2),
+            'months':month_change()
             }
             return render(request,'index.html',{'data':data})
         except :
@@ -48,7 +82,6 @@ def index(request):
                 return render(request,'index.html')
 
 from .prediction import *
-
 def prediction(request):
     if request.method=='POST':
         year=float(request.POST['year'])
@@ -77,3 +110,12 @@ def graph_view(request):
     year_list,rain_list=details_list()
     return render(request,'graph.html',{'year_list':year_list,'rain_list':rain_list})
    
+
+def monthly_prediction(request):
+    if request.method=='POST':
+        month=request.POST['month']
+        data=monthly_rain(month[:3])
+        messages.success(request,'Predicted Rainfall of {} month is {}mm'.format(month,round(data,2)))
+        return redirect(index)
+
+
