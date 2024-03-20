@@ -223,6 +223,7 @@ function checkTime(i) {
           <form action="../monthly_prediction" method="post">
             {% csrf_token %}
             <select name="month" id="" class="form-control" required>
+              <option value="" disabled selected>select any month</option>
               {% for i in data.months %}
               <option value="{{i}}">{{i}}</option>
               {% endfor %}

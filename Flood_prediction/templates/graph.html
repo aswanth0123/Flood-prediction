@@ -9,25 +9,39 @@
 
     </div>
 
-<script>
-const xArray =  JSON.parse('{{ year_list|safe }}');
-const yArray =  JSON.parse('{{ rain_list|safe }}');
-// alert(xArray)
-// const yArray =  [1902,1903,1904,1905,1906];
-// const xArray =  [4001,4025,2214,3164];
-const data = [{
-  x:xArray,
-  y:yArray,
-  type:"bar",
-  orientation:"",
-  marker: {color:" rgb(30, 124, 239)"}
-}];
-const layout = {title:"Rain Fall ",xaxis:{title: "Year" },yaxis: { title: "Rainfall (mm)" }
-};
-
-Plotly.newPlot("myPlot", data, layout);
-
-</script>
-
+    <script>
+      const xArray = JSON.parse('{{ year_list|safe }}');
+      const yArray = JSON.parse('{{ rain_list|safe }}');
+      const zArray = JSON.parse('{{ limit|safe }}'); // Additional line data
+      const data = [
+        {
+          x: xArray,
+          y: yArray,
+          type: "bar",
+          orientation: "",
+          marker: { color: "rgb(30, 124, 239)" }
+        },
+        {
+          x: xArray,  // Use the same x values for the additional line
+          y: zArray,  // Use the new y values for the additional line
+          type: "scatter", // You can use 'scatter' for a line plot
+          mode: "lines",   // Mode 'lines' connects the points with lines
+          name: "crossing this line will cause flood ", // Name of the additional line for legend
+          line: {
+            color: "rgb(255, 0, 0)", // Customize line color
+            width: 2 // Customize line width
+          }
+        }
+      ];
+      
+      const layout = {
+        title: "Rain Fall",
+        xaxis: { title: "Year" },
+        yaxis: { title: "Rainfall (mm)" }
+      };
+      
+      Plotly.newPlot("myPlot", data, layout);
+      </script>
+      
 </body>
 </html>

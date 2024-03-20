@@ -15,6 +15,8 @@ def monthly_rain(mon=None):
     month_list=list(month_list)
     average = statistics.mean(month_list)
     return average
+
+
 def month_change():
     months = [
     "January",
@@ -30,8 +32,6 @@ def month_change():
     "November",
     "December"
     ]
-
-    # Convert to uppercase using list comprehension
     months = [month.upper() for month in months]
     return months
 
@@ -98,7 +98,6 @@ def prediction(request):
         November=float(request.POST['November'])
         December=float(request.POST['December'])
         l=[January,February,March,April,May,June,July,August,September,October,November,December]
-        print(l)
         a=predict1(year,l)
         if a[0]==1:
             messages.success(request,'There is a chance for Flood')
@@ -108,7 +107,8 @@ def prediction(request):
 
 def graph_view(request):
     year_list,rain_list=details_list()
-    return render(request,'graph.html',{'year_list':year_list,'rain_list':rain_list})
+    limit=[2900 for x in range(len(year_list))]
+    return render(request,'graph.html',{'year_list':year_list,'rain_list':rain_list,'limit':limit})
    
 
 def monthly_prediction(request):
